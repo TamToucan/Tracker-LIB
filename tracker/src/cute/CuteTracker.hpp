@@ -4,7 +4,7 @@
 
 #include "../core/Tracker.hpp"
 
-#ifdef _WIN32
+#if defined(_WIN32) && !defined(LOTT_STATIC)
 #ifdef CuteTracker_EXPORTS
 #define CuteTRACKER_API __declspec(dllexport) // Export when building ExtA
 #else

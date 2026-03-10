@@ -7,7 +7,7 @@ file(GLOB_RECURSE TRACKER_SOURCES CONFIGURE_DEPENDS
 )
 
 # Define Shared Library
-add_library(${TRACKER_LIB_NAME} SHARED ${TRACKER_SOURCES})
+add_library(${TRACKER_LIB_NAME} STATIC ${TRACKER_SOURCES})
 
 # Include Directories
 target_include_directories(${TRACKER_LIB_NAME} PUBLIC
@@ -16,7 +16,6 @@ target_include_directories(${TRACKER_LIB_NAME} PUBLIC
 )
 
 # Properties
-set_target_properties(${TRACKER_LIB_NAME} PROPERTIES WINDOWS_EXPORT_ALL_SYMBOLS ON)
 if(NOT MSVC)
     set_target_properties(${TRACKER_LIB_NAME} PROPERTIES PREFIX "")
 endif()

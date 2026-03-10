@@ -4,7 +4,7 @@ file(GLOB_RECURSE CUTETRACKER_SOURCES CONFIGURE_DEPENDS
     "*.h" "*.hpp" "*.cpp"
 )
 
-add_library(${CUTETRACKER_LIB_NAME} SHARED ${CUTETRACKER_SOURCES})
+add_library(${CUTETRACKER_LIB_NAME} STATIC ${CUTETRACKER_SOURCES})
 
 target_include_directories(${CUTETRACKER_LIB_NAME} PRIVATE
     "${CMAKE_CURRENT_SOURCE_DIR}/../core"
@@ -24,9 +24,6 @@ target_link_libraries(${CUTETRACKER_LIB_NAME}
 add_custom_command(TARGET ${CUTETRACKER_LIB_NAME} POST_BUILD
     COMMAND ${CMAKE_COMMAND} -E copy_if_different
     $<TARGET_FILE:Tracker>
-    $<TARGET_FILE_DIR:${CUTETRACKER_LIB_NAME}>
-    COMMAND ${CMAKE_COMMAND} -E copy_if_different
-    $<TARGET_FILE:cute>
     $<TARGET_FILE_DIR:${CUTETRACKER_LIB_NAME}>
 )
 

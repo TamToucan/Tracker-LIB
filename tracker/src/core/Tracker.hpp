@@ -6,7 +6,7 @@
 #include <unordered_map>
 
 
-#ifdef _WIN32
+#if defined(_WIN32) && !defined(LOTT_STATIC)
 #ifdef Tracker_EXPORTS
 #define TRACKER_API __declspec(dllexport)
 #else
